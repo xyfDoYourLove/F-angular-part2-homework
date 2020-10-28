@@ -1,0 +1,19 @@
+<div>
+  selected: {{selected}}
+</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <app-student *ngFor="let student of students" [student]="student" (selected)="selected = $event"></app-student>
+</table>
+
+<div>
+  <input type="text" [(ngModel)]="target">
+  <button (click)="goto()">goto</button>
+</div>
