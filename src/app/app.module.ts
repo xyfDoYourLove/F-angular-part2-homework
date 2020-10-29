@@ -9,6 +9,8 @@ import { StudentComponent } from './student/student.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import {StoreModule} from '@ngrx/store';
 import {studentsReducer} from './store/reducers/students.reducers';
+import {EffectsModule} from '@ngrx/effects';
+import { LoadStudentsEffect } from './store/effects/load-students.effect';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {studentsReducer} from './store/reducers/students.reducers';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ students: studentsReducer})
+    StoreModule.forRoot({ students: studentsReducer}),
+    EffectsModule.forRoot([LoadStudentsEffect])
   ],
   providers: [],
   bootstrap: [AppComponent]

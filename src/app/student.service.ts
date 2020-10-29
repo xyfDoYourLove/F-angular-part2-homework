@@ -1,24 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Student} from './student';
 import {Observable} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {selectStudent, selectStudents} from './store/selectors/students.selector';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentService {
 
-  constructor(private store: Store) {
+  constructor(private http: HttpClient) {
   }
 
   // get url: /assets/students.mock.json
   getStudents(): Observable<Student[]> {
-    return this.store.select(selectStudents);
+    return this.http.get<Student[]>('/assets/students.mock.json');
   }
 
   // get url: /assets/student{id}.mock.json
   getStudent(id: number): Observable<Student> {
-    return this.store.select(selectStudent, {id});
+    return this.http.get<Student>(`/assets/student${id}.mock.json`);
   }
 }
