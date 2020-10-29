@@ -1,0 +1,4 @@
+import {createAction, props} from '@ngrx/store';
+import {Student} from '../../student';
+
+export const setStudents = createAction('SET_STUDENTS', props<{ students: Student[] }>());

@@ -14,6 +14,11 @@
 </table>
 
 <div>
-  <input type="text" [(ngModel)]="target">
+  <label>
+    ID:
+    <input type="text" [(ngModel)]="target">
+  </label>
   <button (click)="goto()">goto</button>
 </div>
+
+<button (click)="setStudents()">set students</button>

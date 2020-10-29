@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentComponent } from './student/student.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import {StoreModule} from '@ngrx/store';
+import {studentsReducer} from './store/reducers/students.reducers';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ students: studentsReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
