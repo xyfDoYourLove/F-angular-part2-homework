@@ -22,7 +22,7 @@ export class StudentDetailComponent implements OnInit {
       map(paramMap => Number(paramMap.get('id'))),
       map(id => this.studentService.getStudent(id)),
     ).subscribe(
-      student => this.student = student,
+      student => student.subscribe(stu => this.student = stu),
       error => this.errorMessage = error,
     );
   }
